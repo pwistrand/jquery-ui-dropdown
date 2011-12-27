@@ -1,0 +1,5 @@
+A jQuery UI widget to provide a customizable drop down select.
+
+This is half an exercise in learning how to write jQuery widgets but also in my 
+searches I couldn't find a nice clean reusable component to do what I wanted so 
+I wrote my own.

@@ -1,0 +1,59 @@
+div.dd {
+    width: 300px;
+    position: relative;
+    float: left;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:13px;
+}
+
+div.dd-selected {
+    background-image: -webkit-linear-gradient(bottom, rgb(229,229,229) 30%, rgb(255,255,255) 85%);
+    background-image: linear-gradient(bottom, rgb(229,229,229) 30%, rgb(255,255,255) 85%);
+    background-image: -moz-linear-gradient(bottom, rgb(229,229,229) 30%, rgb(255,255,255) 85%);
+    background-image: -ms-linear-gradient(bottom, rgb(229,229,229) 30%, rgb(255,255,255) 85%);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#FFFFFF', endColorStr='#E5E5E5')";
+    border-color: rgb(202, 199, 187);
+    box-shadow: 1px 1px 1px 1px rgba(162, 162, 162, 1);
+    padding: 15px;
+    position: relative;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    z-index: 2;
+}
+
+div.dd-items {
+    overflow: auto;
+    height: 190px;
+    width: inherit;
+    position: absolute;
+    z-index: 100;
+}
+
+div.dd-items ul li {
+    list-style:none;
+}
+
+div.dd-items ul li a {
+    text-decoration: none;
+    color: #000000;
+}
+
+div.dd-items ul li a:hover div {
+    background-color: #EEE;
+}
+
+div.dd-items ul li {
+    border-bottom: solid 1px rgb(229,229,229);
+}
+
+div.dd-items ul li a div {
+    background-color: #FFFFFF;
+    padding: 10px;
+}
+
+div.dd-items ul li a img {
+    border: 1px solid #DADADA;
+    float: left;
+    height: 33px;
+    width: 33px;
+}

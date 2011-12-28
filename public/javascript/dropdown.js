@@ -20,7 +20,7 @@
             .addClass("dd")
             .disableSelection(); // prevents the text from being selected as result of clicking
 
-        this.element.on("click", function(event) {
+        this.element.on("click", function() {
             self.element.find(".dd-items").toggle(); //TODO: just check the this context and $(this)
         });
 
@@ -35,26 +35,28 @@
         ');
         this.element.find(".dd-items").toggle();    // not working! it did in jsfiddle!
     },
-    _selected: function(item) {
-
-    },
     refresh: function() {
         var self = this;
         return function(args) {
 
             var selected = self.element.find(".dd-selected");
             selected.empty();
-            if (args.value) $.tmpl(self.options.selectedTemplate, args.value).appendTo(selected);
+            if (args.value) {
+                $.tmpl(self.options.selectedTemplate, args.value).appendTo(selected);
+            }
 
             var items = args.items || [];
-            var list = self.element.find(".dd-items ul");
-            list.remove("li");
-            // TODO: we should be controlling the creation of the <li/>
+            var list = self.element.find(".dd-items ul").empty();
+
+            // TODO: we should be responsible for the creation of the <li><a ... and therefore not require it in the template
             $.tmpl(self.options.itemTemplate, items).appendTo(list);
-            list.find("li a").each(function(k, v) {
+            list.find("li a").each(function(k) {
                 $(this).data("vm", items[k]);
-                $(this).on("click", function(event) {
-                    self.options.selected($(this).data("vm"));
+                $(this).on("click", function() {
+                    var item = $(this).data("vm");
+                    selected.empty();
+                    $.tmpl(self.options.selectedTemplate, item).appendTo(selected);
+                    self.options.selected(item);
                 });
             });
         };
